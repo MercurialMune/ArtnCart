@@ -7,7 +7,7 @@
     <%= f.input :description %>
     <%= f.input :price %>
 
-    <%= f.collection_check_boxes :categories, collection: Category.all, as: :associations%>
+    <%= f.association :categories, collection: Category.all, as: :check_boxes, include_hidden: false%>
     <%= f.button :submit %>
   <% end %>
   <%= link_to 'Back to Product List', admin_products_path %>
