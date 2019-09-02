@@ -18,16 +18,17 @@
       <div  class="w3-bar-item w3-button w3-mobile"><%= link_to category.name.capitalize, category_path(category) %></div>
     <% end %>
     <% if admin_signed_in?%>
+    <div  class="w3-bar-item w3-button w3-mobile w3-yellow">Welcome admin!</div>
     <div  class="w3-bar-item w3-button w3-mobile"><%= link_to 'Categories', admin_categories_path %></div>
     <div  class="w3-bar-item w3-button w3-mobile"><%= link_to 'Products', admin_products_path %></div>
     <% end %>
 
-    <div class="w3-right">
+    <div class="">
       <% if current_user %>
-      <div  class="w3-bar-item w3-button w3-mobile "><%= link_to 'Sign out', destroy_user_session_path %></div>
+      <div  class="w3-bar-item w3-button w3-mobile w3-right "><%= link_to 'Sign out', destroy_user_session_path %></div>
       <% else %>
-      <div  class="w3-bar-item w3-button w3-mobile"><%= link_to 'Sign in', user_session_path %></div>
-      <div  class="w3-bar-item w3-button w3-mobile"><%= link_to 'Sign up', new_user_registration_path %></div>
+      <div  class="w3-bar-item w3-button w3-mobile w3-right"><%= link_to 'Sign in', user_session_path %></div>
+      <div  class="w3-bar-item w3-button w3-mobile w3-right"><%= link_to 'Sign up', new_user_registration_path %></div>
       <% end %>
     </div>
 

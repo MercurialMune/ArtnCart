@@ -5,6 +5,12 @@ product = [
   [ "Samsung Galaxy C series", "The Samsung Galaxy S (Super Smart) series is a line of high-end smartphones that has co-existed with the Galaxy Note line as being Samsung's flagship smartphones.", 11999.50]
 ]
 
-product.each do |name, description, price|
-  Product.create( name: name, description: description, price: price )
-end
+category = [ 'Shoes', 'Toys', 'Phones']
+
+ category.each do |name|
+   Category.create(name:name)
+ end
+
+# product.each do |name, description, price|
+#   Product.create( name: name, description: description, price: price )
+# end

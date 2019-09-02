@@ -13,7 +13,13 @@
  *= require_tree .
  *= require_self
  */
- body{background-color:#F7EDF1}
+ body {
+   background: url('pencil.jpg') no-repeat center center fixed;
+   -webkit-background-size: cover;
+   -moz-background-size: cover;
+   -o-background-size: cover;
+   background-size: cover;
+ }
 
  html{box-sizing:border-box}*,*:before,*:after{box-sizing:inherit}
  /* Extract from normalize.css by Nicolas Gallagher and Jonathan Neal git.io/normalize */

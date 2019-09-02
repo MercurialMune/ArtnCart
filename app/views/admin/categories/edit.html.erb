@@ -2,9 +2,10 @@
   <div class="w3-container w3-padding w3-margin w3-display-center w3-card-4">
     <h3>Edit Category</h3>
 
-    <%= simple_form_for [:admin, @category], do |f|  %>
+    <%= simple_form_for [:admin, @category] do |f|  %>
       <%= f.input :name %>
       <%= f.button :submit%>
+    <% end %>
     <%= link_to 'Back to Category List', admin_categories_path %>
   </div>
 </div>
