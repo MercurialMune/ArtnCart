@@ -1,0 +1,14 @@
+<div class="3-content">
+  <p><%= link_to 'Add a Category', new_admin_category_path %></p>
+  <div class="w3-container w3-padding w3-margin w3-display-middle w3-card">
+    <div class="w3-table">
+      <tr>
+        <th>Name</th>
+      </tr>
+      <tbody>
+        <%= render partial: "admin_category", collection: @categories%>
+      </tbody>
+    </div>
+  </div>
+
+</div>
