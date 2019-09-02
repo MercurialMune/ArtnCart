@@ -1,0 +1,13 @@
+<div class="w3-col s6 m4 l3">
+  <div class="w3-card-4 w3-padding w3-margin-bottom">
+    <div class="w3-container w3-center">
+      <p><%= product.name %></p>
+      <p><%= product.price %></p>
+      <p><%= product.description%></p>
+      <p class="w3-button"><%= link_to 'Edit', edit_admin_product_path(admin_product) %></p>
+      <p class="w3-button"><%= link_to 'Delete', admin_product_path(admin_product), method: :delete %></p>
+
+    </div>
+  </div>
+
+</div>

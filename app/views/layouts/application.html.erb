@@ -12,7 +12,21 @@
   </head>
 
   <body>
+  <div class="">
+  <div class="w3-bar w3-black">
+    <div  class="w3-bar-item w3-button w3-mobile w3-green"><%= link_to 'Home', welcome_index_path %></div>
+    <% Category.all.each do |category|%>
+      <div  class="w3-bar-item w3-button w3-mobile"><%= link_to category.name.capitalize, category_path(category) %></div>
+    <% end %>
+    <% if admin_signed_in?%>
+    <div  class="w3-bar-item w3-button w3-mobile"><%= link_to 'Categories', admin_categories_path %></div>
+    <div  class="w3-bar-item w3-button w3-mobile"><%= link_to 'Products', admin_products_path %></div>
+    <% end %>
+
+    </div>
+  </div>
     <div class="w3-container">
+
       <div class="w3-center">
         <p class="notice"><%= notice %></p>
         <p class="alert"><%= alert %></p>
