@@ -1,7 +1,10 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+product = [
+  [ "Samsung Galaxy S", "The Samsung Galaxy S (Super Smart) series is a line of high-end smartphones that has co-existed with the Galaxy Note line as being Samsung's flagship smartphones.", 21200.50],
+  [ "Samsung Galaxy Note", "The Samsung Galaxy S (Super Smart) series is a line of high-end smartphones that has co-existed with the Galaxy Note line as being Samsung's flagship smartphones.", 81080.50],
+  [ "Samsung Galaxy Alpha", "The Samsung Galaxy S (Super Smart) series is a line of high-end smartphones that has co-existed with the Galaxy Note line as being Samsung's flagship smartphones.", 52421.50],
+  [ "Samsung Galaxy C series", "The Samsung Galaxy S (Super Smart) series is a line of high-end smartphones that has co-existed with the Galaxy Note line as being Samsung's flagship smartphones.", 11999.50]
+]
+
+product.each do |name, description, price|
+  Product.create( name: name, description: description, price: price )
+end

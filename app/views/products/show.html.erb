@@ -1,19 +1,6 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @product.name %>
-</p>
-
-<p>
-  <strong>Description.string:</strong>
-  <%= @product.description.string %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @product.price %>
-</p>
-
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+<h3 class="w3-center  w3-padding w3-margin w3-light-grey"> <%= @product.name.capitalize %></h3>
+<div class="w3-card w3-padding w3-margin w3-content w3-center">
+<p><%= @product.description %></p>
+<p><%= @product.price  %></p>
+<p class="3w-hover-white"><%= link_to 'Back to Products List', products_path %></p>
+</div>

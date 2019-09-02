@@ -12,6 +12,12 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="w3-container">
+      <div class="w3-center">
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+      </div>
+      <%= yield %>
+    </div>
   </body>
 </html>
