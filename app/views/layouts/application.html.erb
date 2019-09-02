@@ -12,7 +12,6 @@
   </head>
 
   <body>
-  <div class="">
   <div class="w3-bar w3-black">
     <div  class="w3-bar-item w3-button w3-mobile w3-green"><%= link_to 'Home', welcome_index_path %></div>
     <% Category.all.each do |category|%>
@@ -23,9 +22,17 @@
     <div  class="w3-bar-item w3-button w3-mobile"><%= link_to 'Products', admin_products_path %></div>
     <% end %>
 
+    <div class="w3-right">
+      <% if current_user %>
+      <div  class="w3-bar-item w3-button w3-mobile "><%= link_to 'Sign out', destroy_user_session_path %></div>
+      <% else %>
+      <div  class="w3-bar-item w3-button w3-mobile"><%= link_to 'Sign in', user_session_path %></div>
+      <div  class="w3-bar-item w3-button w3-mobile"><%= link_to 'Sign up', new_user_registration_path %></div>
+      <% end %>
     </div>
+
   </div>
-    <div class="w3-container">
+  <div class="w3-container">
 
       <div class="w3-center">
         <p class="notice"><%= notice %></p>
