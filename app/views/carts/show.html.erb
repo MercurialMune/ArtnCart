@@ -1,2 +1,30 @@
-<h1>Carts#show</h1>
-<p>Find me in app/views/carts/show.html.erb</p>
+<h3 class="w3-center w3-padding w3-margin w3-light-grey">My Cart</h3>
+
+<div class="w3-content">
+  <table class="w3-display-middle w3-content w3-card w3-table-all">
+    <tr class="w3-light-grey">
+      <th> Name</th>
+      <th> Price</th>
+      <th> Quantity</th>
+      <th> Subtotal</th>
+      <th>Add another</th>
+      <th>Remove one</th>
+      <th>Clear item from cart</th>
+    </tr>
+    <tbody>
+      <%= @cart_products_with_qty.each do |array|%>
+        <%= product = array[0] %>
+        <%= qty = array[1] %>
+        <tr>
+          <td><%= product.name %></td>
+          <td><%= product.price %></td>
+          <td><%= qty %></td>
+          <td><%= product.price * qty_to_i %></td>
+          <td><%= link_to '+', add_to_cart_path(product), method: :put%></td>
+          <td><%= link_to '-', remove_from_cart_path(product), method: :put%></td>
+          <td><%= link_to 'Clear', remove_one_from_cart_path(product), method: :put%></td>
+        </tr>
+      <% end %>
+    </tbody>
+    </table>
+</div>

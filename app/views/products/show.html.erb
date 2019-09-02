@@ -2,5 +2,6 @@
 <div class="w3-card w3-padding w3-margin w3-content w3-center">
 <p><%= @product.description %></p>
 <p><%= @product.price  %></p>
+<p class="w3-red 3w-hover-white"><%= link_to 'Add to Cart', add_to_cart_path(@product) %></p>
 <p class="3w-hover-white"><%= link_to 'Back to Products List', products_path %></p>
 </div>
