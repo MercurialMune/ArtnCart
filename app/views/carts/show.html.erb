@@ -28,7 +28,10 @@
       <% end %>
     </tbody>
     </table>
-    <div class="w3-label w3-border w3-border-green w3-display-bottom w3-right w3-yellow w3-round w3-padding " style="font-weight:bold">
+    <p class="w3-label w3-border w3-border-yellow  w3-left  w3-green w3-round w3-padding " style="font-weight:bold">
       Total Cost :  $ <%= @cart_total%>
-    </div>
+    </p>
+    <p class="w3-button w3-border w3-border-yellow w3-hover-yellow w3-hover-border-green w3-right w3-green w3-round">
+      <%= link_to "Checkout", new_transaction_path unless current_user.get_cart_products_with_qty.blank?%>
+    </p>
 </div>
