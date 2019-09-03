@@ -7,6 +7,8 @@ ruby '2.5.5'
 gem 'rails', '~> 6.0.0'
 # use simple platforms
 gem 'simple_form'
+# Use Braintree payments
+gem 'gon', '~> 6.2.0'
 # Use devise for authentication and admin model creation
 gem 'devise'
 # Use postgresql as the database for Active Record
