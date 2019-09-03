@@ -1,17 +1,21 @@
+
 <div class="w3-content">
-  <div class="w3-container w3-padding w3-margin w3-display-center w3-card-4">
-    <h3 class="w3-center w3-padding w3-margin-bottom">New Product</h3>
-<div class="">
+  <h3 class="w3-center w3-padding w3-margin-bottom">New Product</h3>
+<div class="w3-padding w3-display-middle  w3-yellow w3-card-4 w3-round">
+<div class="w3-form w3-padding w3-left">
   <%= simple_form_for [:admin, @product] do |f|  %>
     <%= f.input :name %>
     <%= f.input :description %>
     <%= f.input :price %>
 
     <%= f.association :categories, collection: Category.all, as: :check_boxes, include_hidden: false%>
-    <%= f.button :submit %>
+    <div class="w3-center w3-padding">
+      <%= f.button :submit %>
+    </div>
   <% end %>
-  <%= link_to 'Back to Product List', admin_products_path %>
-
+  <p class="w3-button w3-center w3-hover-black w3-hover-text-yellow w3-border w3-border-black w3-round w3-margin">
+    <%= link_to 'Back', admin_products_path %>
+  </p>
 </div>
   </div>
 </div>

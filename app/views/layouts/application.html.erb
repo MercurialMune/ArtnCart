@@ -8,36 +8,32 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= favicon_link_tag asset_path('lotus.png') %>
-
   </head>
-
   <body>
-  <div class="w3-bar w3-black">
-    <div  class="w3-bar-item w3-button w3-mobile w3-green"><%= link_to 'Home', welcome_index_path %></div>
-    <% Category.all.each do |category|%>
-      <div  class="w3-bar-item w3-button w3-mobile"><%= link_to category.name.capitalize, category_path(category) %></div>
-    <% end %>
+  <div class="w3-bar w3-black w3-card-4">
     <% if admin_signed_in?%>
     <div  class="w3-bar-item w3-button w3-mobile w3-yellow">Welcome admin!</div>
+    <% end %>
+    <div  class="w3-bar-item w3-button w3-mobile w3-green"><%= link_to 'Home', welcome_index_path %></div>
+    <% if admin_signed_in?%>
     <div  class="w3-bar-item w3-button w3-mobile"><%= link_to 'Categories', admin_categories_path %></div>
     <div  class="w3-bar-item w3-button w3-mobile"><%= link_to 'Products', admin_products_path %></div>
     <% end %>
-
-    <div class="">
-      <% if current_user %>
-      <div  class="w3-bar-item w3-button w3-mobile w3-right "><%= link_to 'Sign out', destroy_user_session_path %></div>
-      <% else %>
-      <div  class="w3-bar-item w3-button w3-mobile w3-right"><%= link_to 'Sign in', user_session_path %></div>
-      <div  class="w3-bar-item w3-button w3-mobile w3-right"><%= link_to 'Sign up', new_user_registration_path %></div>
-      <% end %>
-    </div>
-
+    <% if current_user %>
+    <div  class="w3-bar-item w3-button w3-mobile"><%= link_to 'Shop Art', products_path %></div>
+    <div  class="w3-bar-item w3-button w3-mobile"><%= link_to 'Art Lessons', products_path %></div>
+    <div  class="w3-bar-item w3-button w3-mobile w3-right "><%= link_to 'Sign out', destroy_user_session_path %></div>
+    <div  class="w3-bar-item w3-button w3-mobile w3-right w3-red"><%= link_to 'My Cart', cart_path %></div>
+    <div  class="w3-bar-item w3-button w3-mobile w3-right w3-black w3-hover-black w3-text-black"><%= link_to 'Login as Admin', admin_products_path %></div>
+    <% else %>
+    <div  class="w3-bar-item w3-button w3-mobile w3-right"><%= link_to 'Sign in', user_session_path %></div>
+    <div  class="w3-bar-item w3-button w3-mobile w3-right"><%= link_to 'Sign up', new_user_registration_path %></div>
+    <% end %>
   </div>
   <div class="w3-container">
-
       <div class="w3-center">
-        <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
+        <p class="notice w3-text-green"><%= notice %></p>
+        <p class="alert w3-text-red"><%= alert %></p>
       </div>
       <%= yield %>
     </div>

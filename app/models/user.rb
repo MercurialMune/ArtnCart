@@ -1,6 +1,5 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   def current_user_cart
@@ -25,7 +24,7 @@ class User < ApplicationRecord
   end
 
   def cart_total_price
-    get_cart_products_with_qty_map { |product, qty| product.price * qty.to_i}.reduce(:+)
+    get_cart_products_with_qty.map { |product, qty| product.price * qty.to_i}.reduce(:+)
   end
 
   def get_cart_products_with_qty
@@ -45,5 +44,5 @@ class User < ApplicationRecord
     end
     $redis.del current_user_cart
   end
-  
+
 end

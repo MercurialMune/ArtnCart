@@ -1,7 +1,8 @@
-<h3 class="w3-center  w3-padding w3-margin w3-light-grey"> <%= @product.name.capitalize %></h3>
-<div class="w3-card w3-padding w3-margin w3-content w3-center">
+<h3 class="w3-center w3-padding  w3-margin"> More about <%= @product.name.capitalize %></h3>
+<div class="w3-card w3-padding w3-margin w3-round w3-display-middle w3-twothird w3-center w3-yellow">
+  <h5 style="font-weight: bold"><%= @product.name.capitalize %></h5>
 <p><%= @product.description %></p>
-<p><%= @product.price  %></p>
-<p class="w3-red 3w-hover-white"><%= link_to 'Add to Cart', add_to_cart_path(@product) %></p>
-<p class="3w-hover-white"><%= link_to 'Back to Products List', products_path %></p>
+<p style="font-weight:bold"> $ <%= @product.price  %></p>
+<div class="w3-border w3-button w3-hover-black w3-round w3-border-black w3-hover-text-yellow"><%= link_to 'Add to Cart', add_to_cart_path(@product) %></div>
+<div class="w3-border w3-hover-black w3-button w3-round w3-border-black w3-hover-text-yellow"><%= link_to 'Back to Products List', products_path %></div>
 </div>

@@ -1,9 +1,9 @@
 <h3 class="w3-center w3-padding w3-margin">Products</h3>
 <div class="w3-content">
   <div class="w3-center">
-    <p class="w3-button w3-green w3-round w3-hover-black w3-center"><%= link_to 'Add Product', new_admin_product_path%></p>
+    <p class="w3-button w3-green w3-round w3-hover-black w3-hover-text-green w3-center"><%= link_to 'Add Product', new_admin_product_path%></p>
   </div>
-  <div class="w3-row-padding">
+  <div class="w3-row-padding ">
       <%= render partial: "admin_product", collection: @products %>
   </div>
 

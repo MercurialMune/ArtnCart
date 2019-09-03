@@ -1,9 +1,11 @@
 <div class="w3-col s6 m4 l3">
-  <div class="w3-card-4 w3-padding w3-margin-bottom">
+  <div class="w3-card-4 w3-padding w3-margin-bottom w3-yellow w3-round">
     <div class="w3-container w3-center">
-      <p><%= product.name %></p>
-      <p><%= product.price %></p>
-      <p class="w3-button"><%= link_to 'View', product_path(product) %></p>
+      <h5 style="font-weight:bold"><%= product.name %></h5>
+      <p tyle="font-weight:bold"> $ <%= product.price %></p>
+      <p><%= product.description %></p>
+
+      <p class="w3-border w3-button w3-round w3-hover-black w3-border-black w3-hover-text-yellow"><%= link_to 'View', product_path(product) %></p>
     </div>
   </div>
 

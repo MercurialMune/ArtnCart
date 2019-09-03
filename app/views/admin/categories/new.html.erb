@@ -1,11 +1,16 @@
 <div class="w3-content">
-  <div class="w3-container w3-padding w3-margin w3-display-center w3-card-4">
-    <h3>New Category</h3>
+  <h3 class="w3-center w3-padding w3-margin">New Category</h3>
+  <div class="w3-container w3-padding w3-round w3-display-middle w3-yellow w3-card-4">
+    <div class=" w3-padding w3-center">
+      <%= simple_form_for [:admin, @category] do |f|  %>
+          <%= f.input :name %>
+          <div class="w3-padding w3-center w3-margin-bottom"><%= f.button :submit%></div>
+          <% end %>
+          <p class="w3-center w3-button w3-hover-black w3-border w3-hover-text-yellow w3-round w3-border-black ">
+            <%= link_to 'Back', admin_categories_path %>
+          </p>
+    </div>
 
-    <%= simple_form_for [:admin, @category] do |f|  %>
-      <%= f.input :name %>
-      <%= f.button :submit%>
-    <% end %>
-    <%= link_to 'Back to Category List', admin_categories_path %>
+
   </div>
 </div>

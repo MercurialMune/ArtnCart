@@ -1,4 +1,6 @@
 class CartsController < ApplicationController
+  before_action :authenticate_user!
+  
   def show
     @cart_products_with_qty = current_user.get_cart_products_with_qty
     @cart_total = current_user.cart_total_price
@@ -18,5 +20,5 @@ class CartsController < ApplicationController
     current_user.remove_one_from_cart(params[:product_id])
     redirect_to cart_path
   end
-  
+
 end
