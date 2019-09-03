@@ -7,7 +7,7 @@ class TransactionsController < ApplicationController
   end
 
   def create
-    @result = Braintree::Transtaction.sale(
+    @result = Braintree::Transaction.sale(
       amount: current_user.cart_total_price,
       payment_method_nonce: params[:payment_method_nonce]
     )
@@ -19,6 +19,7 @@ class TransactionsController < ApplicationController
       flash[:alert] = "Something is not right. Please try again!"
       gon.client_token = generate_client_token
       render :new
+    end
   end
   private
     def check_cart!
