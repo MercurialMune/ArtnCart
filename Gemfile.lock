@@ -62,6 +62,8 @@ GEM
     bindex (0.8.1)
     bootsnap (1.4.5)
       msgpack (~> 1.0)
+    braintree (2.98.0)
+      builder (>= 2.0.0)
     builder (3.2.3)
     byebug (11.0.1)
     capybara (3.28.0)
@@ -86,6 +88,10 @@ GEM
     ffi (1.11.1)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    gon (6.2.1)
+      actionpack (>= 3.0)
+      multi_json
+      request_store (>= 1.0)
     hiredis (0.4.5)
     i18n (1.6.0)
       concurrent-ruby (~> 1.0)
@@ -108,6 +114,7 @@ GEM
     mini_portile2 (2.4.0)
     minitest (5.11.3)
     msgpack (1.3.1)
+    multi_json (1.13.1)
     nio4r (2.5.1)
     nokogiri (1.10.4)
       mini_portile2 (~> 2.4.0)
@@ -152,6 +159,8 @@ GEM
       ffi (~> 1.0)
     redis (4.1.2)
     regexp_parser (1.6.0)
+    request_store (1.4.1)
+      rack (>= 1.4)
     responders (3.0.0)
       actionpack (>= 5.0)
       railties (>= 5.0)
@@ -220,9 +229,11 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap (>= 1.4.2)
+  braintree
   byebug
   capybara (>= 2.15)
   devise
+  gon (~> 6.2.0)
   hiredis (~> 0.4.5)
   jbuilder (~> 2.7)
   listen (>= 3.0.5, < 3.2)
