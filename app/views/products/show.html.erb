@@ -3,6 +3,6 @@
   <h5 style="font-weight: bold"><%= @product.name.capitalize %></h5>
 <p><%= @product.description %></p>
 <p style="font-weight:bold"> $ <%= @product.price  %></p>
-<div class="w3-border w3-button w3-hover-black w3-round w3-border-black w3-hover-text-yellow"><%= link_to 'Add to Cart', add_to_cart_path(@product) %></div>
+<div class="w3-border w3-button w3-hover-black w3-round w3-border-black w3-hover-text-yellow"><%= link_to 'Add to Cart', add_to_cart_path(@product), method: :put %></div>
 <div class="w3-border w3-hover-black w3-button w3-round w3-border-black w3-hover-text-yellow"><%= link_to 'Back to Products List', products_path %></div>
 </div>

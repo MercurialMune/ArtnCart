@@ -7,9 +7,9 @@
       <th> Price</th>
       <th> Quantity</th>
       <th> Subtotal</th>
-      <th> Add one</th>
-      <th> Clear one</th>
-      <th> Clear all</th>
+      <th class="w3-text-green w3-center"> Add one</th>
+      <th class="w3-text-red w3-center"> Clear one</th>
+      <th class="w3-text-red w3-center"> Clear all</th>
     </tr>
 
     <tbody>
@@ -18,14 +18,17 @@
         <% qty = array[1] %>
         <tr>
           <td><%= product.name %></td>
-          <td><%= product.price %></td>
+          <td> $ <%= product.price %></td>
           <td><%= qty %></td>
-          <td><%= product.price * qty_to_i %></td>
-          <td><%= link_to '+', add_to_cart_path(product), method: :put%></td>
-          <td><%= link_to '-', remove_from_cart_path(product), method: :put%></td>
-          <td><%= link_to 'Clear', remove_one_from_cart_path(product), method: :put%></td>
+          <td><%= product.price * qty.to_i %></td>
+          <td class="w3-button w3-text-green w3-center"><%= link_to '+', add_to_cart_path(product), method: :put%></td>
+          <td class="w3-button w3-text-red w3-center"><%= link_to '-', remove_one_cart_path(product), method: :put%></td>
+          <td class="w3-button w3-text-red w3-center"><%= link_to 'Clear', remove_from_cart_path(product), method: :put%></td>
         </tr>
       <% end %>
     </tbody>
     </table>
+    <div class="w3-label w3-border w3-border-green w3-display-bottom w3-right w3-yellow w3-round w3-padding w3-margin" style="font-weight:bold">
+      Total Cost :  $ <%= @cart_total%>
+    </div>
 </div>

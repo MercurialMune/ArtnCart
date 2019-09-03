@@ -6,7 +6,7 @@ class User < ApplicationRecord
     "cart#{id}"
   end
 
-  def add_to_cart
+  def add_to_cart(product_id)
     $redis.hincrby current_user_cart, product_id, 1
   end
 
