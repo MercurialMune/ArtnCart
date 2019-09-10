@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'subscriptions/new'
+  get 'subscriptions/create'
   devise_for :users
   devise_for :admins
 
