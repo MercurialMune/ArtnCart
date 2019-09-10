@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   devise_for :users
   devise_for :admins
 
@@ -14,6 +15,7 @@ Rails.application.routes.draw do
   end
 
   resources :transactions, only: [:new, :create]
+  resources :charges, only: [:new, :create]
 
   namespace :admin do
     root to: 'products#index'

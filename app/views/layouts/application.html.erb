@@ -6,6 +6,11 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <script src="https://js.braintreegateway.com/v2/braintree.js"></script>
+    <script src="https://js.stripe.com/v3/">
+        Stripe.setPublishableKey('pk_test_iodjRiA9OzTNpXpsiIKw07wm00DXI6uf7H');
+        var stripe = Stripe('pk_test_iodjRiA9OzTNpXpsiIKw07wm00DXI6uf7H');
+        var elements = stripe.elements();
+    </script>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= favicon_link_tag asset_path('icon.png') %>

@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  before_create :increment_premium
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
@@ -47,6 +48,13 @@ class User < ApplicationRecord
       self.orders.create(user: self, product: product, quantity: qty)
     end
     $redis.del current_user_cart
+  end
+
+  def increment_premium
+    if premium_until.nil? || (premium_until < Date.today)
+      self.premium_until = Date.today
+    end
+    self.premium_until += 1.month
   end
 
 end
