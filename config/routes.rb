@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-  get 'subscriptions/new'
-  get 'subscriptions/create'
+
+  get 'hooks/stripe'
   devise_for :users
   devise_for :admins
 
@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     put 'remove_one/:product_id', to: 'carts#remove_one', as: :remove_one
   end
 
+  resources :subscriptions, only: [:new, :create]
   resources :transactions, only: [:new, :create]
   resources :charges, only: [:new, :create]
 

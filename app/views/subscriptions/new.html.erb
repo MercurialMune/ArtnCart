@@ -1,2 +1,17 @@
-<h1>Subscriptions#new</h1>
-<p>Find me in app/views/subscriptions/new.html.erb</p>
+<h1>Subscribe to a monthly subscription</h1>
+
+<%= form_tag subscriptions_path do %>
+  <% if current_user.stripe_token %>
+    <p>Already Subscribed</p>
+      <%= submit_tag 'Renew Subscription', class: ' w3-blue w3card-4 w3-hover-yellow w3-round w3-center w3-button' %>
+  <% else %>
+    <p>Subscribe to reload your account automatically every month</p>
+    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="<%= Rails.application.secrets.stripe[:publishable_key] %>"
+            data-image="<%= image_url 'icon.png' %>"
+            data-name="Art n Cart"
+            data-description="Premium Art Lessons"
+            data-email="<%= current_user.email %>"
+            data-locale="auto"></script>
+  <% end %>
+<% end %>
