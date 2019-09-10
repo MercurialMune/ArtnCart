@@ -5,6 +5,9 @@
   <p>You do not have a plan... Subscribe here</p>
   <% end %>
 <%= form_tag charges_path do %>
+  <% if current_user.stripe_token %>
+    <%= submit_tag 'You are already subscribed' %>
+  <% else %>
 
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           Stripe.setPublishableKey[:publishable_key]
@@ -12,4 +15,5 @@
           data-description="One month subscription"
           data-amount="500"
           data-locale="auto"> </script>
+  <% end %>
 <% end %>

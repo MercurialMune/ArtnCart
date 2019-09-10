@@ -1,4 +1,6 @@
 class ChargesController < ApplicationController
+    include StripeConcern
+
   # Stripe form to make a new payment
     def new
     end
@@ -8,10 +10,11 @@ class ChargesController < ApplicationController
       @amount = 500
 
       # get customer from POST params
-      customer = Stripe::Customer.create(
-        email: params[:stripeEmail],
-        source: params[:stripeToken]
-      )
+      customer = create_or_retrieve_customer(current_user)
+      # customer = Stripe::Customer.create(
+      #   email: params[:stripeEmail],
+      #   source: params[:stripeToken]
+      # )
 
       begin
         charge = Stripe::Charge.create(
@@ -20,7 +23,7 @@ class ChargesController < ApplicationController
           description: 'Rails Stripe customer',
           currency: 'eur'
         )
-        current_user.increment_premium
+        current_user.increment_premium!
       rescue Stripe::CardError => e
         flash[:error] = e.message
         redirect_to new_charge_path
