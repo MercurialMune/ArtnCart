@@ -16,7 +16,7 @@
     <%= favicon_link_tag asset_path('icon.png') %>
   </head>
   <body>
-  <div class="w3-bar w3-black w3-card-4">
+  <div style="position: fixed" class="w3-bar w3-black w3-card-4">
     <% if admin_signed_in?%>
     <div  class="w3-bar-item w3-button w3-mobile w3-yellow">Welcome admin!</div>
     <% end %>
@@ -27,7 +27,8 @@
     <% end %>
     <% if current_user %>
     <div  class="w3-bar-item w3-button w3-mobile w3-hover-yellow"><%= link_to 'Shop Art', products_path %></div>
-    <div  class="w3-bar-item w3-button w3-mobile w3-hover-yellow"><%= link_to 'Art Lessons', products_path %></div>
+    <div  class="w3-bar-item w3-button w3-mobile w3-hover-yellow"><%= link_to 'Art Lessons', new_subscription_path %></div>
+    <div  class="w3-bar-item w3-button w3-mobile w3-hover-yellow"><%= link_to 'Forum', simple_discussion_path %></div>
     <div  class="w3-bar-item w3-button w3-mobile w3-right w3-hover-yellow"><%= link_to 'Sign out', destroy_user_session_path %></div>
     <div  class="w3-bar-item w3-button w3-mobile w3-right w3-red w3-hover-yellow"><%= link_to 'My Cart', cart_path %></div>
     <div  class="w3-bar-item w3-button w3-mobile w3-right w3-black w3-hover-black w3-text-black"><%= link_to 'Login as Admin', admin_products_path %></div>
@@ -36,6 +37,7 @@
     <div  class="w3-bar-item w3-button w3-mobile w3-hover-yellow w3-right"><%= link_to 'Sign up', new_user_registration_path %></div>
     <% end %>
   </div>
+  <br><br>
   <div class="w3-container">
       <div class="w3-center">
         <p class="notice w3-text-green"><%= notice %></p>

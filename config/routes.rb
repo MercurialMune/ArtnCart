@@ -25,4 +25,6 @@ Rails.application.routes.draw do
     resources :products, only: [:index, :new, :create, :edit, :update, :destroy]
     resources :categories, only: [:index, :new, :create, :edit, :update, :destroy]
   end
+  mount SimpleDiscussion::Engine => "/forum"
+
 end

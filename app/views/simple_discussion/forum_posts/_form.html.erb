@@ -1,0 +1,30 @@
+<div class="w3-form">
+
+<%= form_for [@forum_thread, @forum_post],
+  url: (@forum_post.persisted? ? simple_discussion.forum_thread_forum_post_path(@forum_thread, @forum_post) : simple_discussion.forum_thread_forum_posts_path(@forum_thread)),
+  html: { data: { behavior: "comment-form" } } do |f| %>
+
+  <% if @forum_post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@forum_post.errors.count, "error") %> prohibited this forum_post from being saved:</h2>
+
+      <ul>
+        <% @forum_post.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class=" w3-margin-top w3-margin-bottom w3-input w3-animate-input">
+    <%= f.text_area :body, placeholder: t('add_a_comment'), class:"w3-input w3-animate-input" ,type:"text", style:"width:30%" ,data: { behavior: "comment-body" } %>
+  </div>
+
+
+
+   <div class="w3-right">
+    <%= f.button "#{f.object.new_record? ? t('comment') : t('update_comment')  }", class: "w3-button w3-border w3-border-green w3-text-green w3-round w3-hover-green", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> #{t('saving_comment')}"} %>
+   </div>
+
+<% end %>
+</div>

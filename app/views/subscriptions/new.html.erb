@@ -1,5 +1,8 @@
-<h1>Subscribe to a monthly subscription</h1>
-
+<div class="w3-content">
+  <h3 class="w3-center w3-padding w3-margin">Subscribe to a monthly subscription</h3>
+  <div class="w3-dislay-middle w3-mobile">
+    <div class="w3-padding w3-margin w3-card-4 w3-yellow w3-round w3-display-middle">
+      <div class="w3-padding w3-margin w3-round">
 <%= form_tag subscriptions_path do %>
   <% if current_user.stripe_token %>
     <p>Already Subscribed</p>
@@ -15,3 +18,7 @@
             data-locale="auto"></script>
   <% end %>
 <% end %>
+      </div>
+    </div>
+  </div>
+</div>

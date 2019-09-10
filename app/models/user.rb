@@ -6,6 +6,15 @@ class User < ApplicationRecord
 
   has_many :orders
   has_many :products, through: :orders
+  include SimpleDiscussion::ForumUser
+
+
+
+  def name
+    if Thread.current[:user]
+    Thread.current[:user].email
+    end
+  end
 
   def current_user_cart
     "cart#{id}"

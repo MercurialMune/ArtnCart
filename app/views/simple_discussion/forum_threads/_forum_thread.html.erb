@@ -1,0 +1,36 @@
+<%= cache forum_thread do %>
+  <div class="forum-thread w3-margin-bottom">
+    <div class="w3-row-padding">
+
+      <div class=" w3-round">
+          <%= avatar_tag(forum_thread.user.email) %>
+      </div>
+
+      <div class="col">
+        <h4>
+          <% if forum_thread.solved? %>
+            <span class="text-success"><%= icon "check-circle" %></span>
+          <% end %>
+
+          <%= link_to simple_discussion.forum_thread_path(forum_thread) do %>
+            <%= icon "thumb-tack", class: "text-muted" if forum_thread.pinned? %> <%= forum_thread.title %>
+          <% end %>
+        </h4>
+
+        <div class="thread-details">
+          <strong><%= category_link(forum_thread.forum_category) %></strong>
+           <%= t('asked_time_ago', time: time_ago_in_words(forum_thread.created_at), author: forum_thread.user.email) %>
+        </div>
+
+        <p class="text-muted"><%= truncate(forum_thread.forum_posts.first.body, length: 200) %></p>
+      </div>
+
+      <div class="col-sm-2 w3-small text-center w3-right">
+        <%= link_to simple_discussion.forum_thread_path(forum_thread), class: "thread-posts-count" do %>
+          <span class="count w3-small w3-border w3-border-green w3-button w3-hover-green w3-round"><%= forum_thread.forum_posts_count %> <%= t("post", count: forum_thread.forum_posts_count) %></span>
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+<% end %>

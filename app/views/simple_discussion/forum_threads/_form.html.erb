@@ -1,0 +1,49 @@
+<%= form_for @forum_thread,
+   url: (@forum_thread.persisted? ? simple_discussion.forum_thread_path(@forum_thread) : simple_discussion.forum_threads_path),
+   html: { data: {behavior: "comment-form"} } do |f| %>
+
+  <% if @forum_thread.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@forum_thread.errors.count, "error") %> prohibited this forum_thread from being saved:</h2>
+
+      <ul>
+      <% @forum_thread.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="w3-padding">
+    <%= f.label 'Pick a category for your post' %>
+    <%= f.collection_radio_buttons(:forum_category_id, ForumCategory.sorted, :id, :name ) do |b|  %>
+      <div class="w3-bar" >
+       <div class="w3-bar-item"><%= b.radio_button %></div>
+        <div class="w3-bar-item"><%= b.label %></div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="w3-padding">
+    <%= f.label t('title') %>
+    <%= f.text_field :title, placeholder: t('how_do_i'), class:"w3-input w3-animate-input" ,type:"text", style:"width:30%" %>
+  </div>
+
+  <% if local_assigns.fetch(:posts, true) %>
+    <%= f.fields_for :forum_posts do |p| %>
+      <div class="w3-padding">
+        <%= p.label :body, "What do you need help with?" %>
+        <%= p.text_area :body, placeholder: t('add_a_comment'), rows: 10, class: "w3-input ", data: { behavior: "comment-body" } %>
+      </div>
+    <% end %>
+  <% end %>
+
+  <div class="w3-padding w3-right">
+    <% if f.object.new_record? %>
+      <%= f.button "Ask Your Question", class: "w3-button w3-border w3-border-green w3-text-green w3-round w3-hover-green", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> #{t('saving')}"} %>
+    <% else %>
+      <%= f.button "Update Thread", class: "w3-button w3-border w3-border-green w3-text-green w3-round w3-hover-green", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> #{t('saving')}"} %>
+    <% end %>
+  </div>
+
+<% end %>

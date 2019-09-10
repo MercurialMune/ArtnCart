@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require simple_discussion
  */
  body {
    background: url('pencil.jpg') no-repeat center center fixed;
