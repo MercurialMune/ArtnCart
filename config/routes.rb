@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
 
-  get 'hooks/stripe'
+  post 'hooks/stripe'
   devise_for :users
   devise_for :admins
 
